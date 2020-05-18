@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +12,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call('UsersTableSeeder');
+        DB::table('apitokens')->insert([
+            'token' => Str::random(64),
+            'valid' => true,
+        ]);
+
+        DB::table('armaments')->insert([
+            'title' => 'Ion Canons'
+        ]);
+
+        DB::table('armaments')->insert([
+            'title' => 'Turbo Laser'
+        ]);
+
+        DB::table('armaments')->insert([
+            'title' => 'Tractor Beam'
+        ]);
     }
 }
